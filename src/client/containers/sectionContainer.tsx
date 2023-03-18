@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Section from '../components/Section';
-import { SectionType } from '../../types';
+import { SectionType } from '../../../types';
 import { RootState } from '../store';
 import { updateProfile } from '../actions/actions';
 import AddSectionButton from '../components/AddSectionButton';
@@ -17,11 +17,11 @@ export default function SectionContainer() {
   })
 
   return (
-    <div>
-      <div>Section Container</div>
+    <div className='max-w-md mx-auto mt-4 p-4 border-2 border-gray-400 rounded-lg'>
+      <div className='text-xl font-semibold mb-4'>Edit Your Resume Sections</div>
       {profile.name}
 
-      <br/><input onChange={(event) => dispatch(updateProfile({...profile, name: event.target.value}))} value={profile.name}></input>
+      <br/><input className='focus:invalid:border-pink-500 rounded border-dashed border-2 ' onChange={(event) => dispatch(updateProfile({...profile, name: event.target.value}))} value={profile.name}></input>
       {resumeSections}
       <AddSectionButton/>
     </div>
